@@ -17,4 +17,4 @@ A Face Recognition-based project in Python to mark and track your attendance.
 - Extract the contents of the .zip file into the folder attendace-management-system (if this folder is not created automatically, then create a new folder first and then extract the .zip file into it)
 - Create a new `TrainingImage` folder in that folder
 - Open file `AMS_Run.py` and change all the paths with your corresponding system paths (line nos. 168, 224, 485, 514, 554)
-- Run `AMS_Run.py`.
+- Run `AMS_Run.py` (in Command Prompt/Anaconda Prompt/ any Terminal, open the folder attendance-management-system and run cmd: `python AMS_Run.py`)
