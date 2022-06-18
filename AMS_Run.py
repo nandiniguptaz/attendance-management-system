@@ -166,7 +166,7 @@ def manually_fill():
             def create_csv():
                 import csv
                 cursor.execute("select * from " + DB_table_name + ";")
-                csv_name = 'C:/Users/NANDINI/Desktop/Attendance_Management_System/Attendance/Manual Attendance/Manual_Attendance_Sheet.csv'
+                csv_name = 'C:/Users/NANDINI/Desktop/attendance-management-system/Attendance/Manual Attendance/Manual_Attendance_Sheet.csv'
                 with open(csv_name, "w") as csv_file:
                     csv_writer = csv.writer(csv_file)
                     csv_writer.writerow(
@@ -222,7 +222,7 @@ def manually_fill():
             def attf():
                 import subprocess
                 subprocess.Popen(
-                    r'explorer /select," C:/Users/NANDINI/Desktop/Attendance_Management_System/Attendance/Manual Attendance/-------Check atttendance-------"')
+                    r'explorer /select," C:/Users/NANDINI/Desktop/attendance-management-system/Attendance/Manual Attendance/-------Check atttendance-------"')
 
             attf = tk.Button(MFW,  text="Check Sheets", command=attf, fg="black", bg="#a0e8af",
                              width=12, height=1, activebackground="Red", font=('roboto', 14, ' bold '))
@@ -483,7 +483,7 @@ def subjectchoose():
                 root = tkinter.Tk()
                 root.title("Attendance of " + Subject)
                 root.configure(background='#1B1B1B')
-                cs = 'C:/Users/NANDINI/Desktop/Attendance_Management_System/' + fileName
+                cs = 'C:/Users/NANDINI/Desktop/attendance-management-system/' + fileName
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -512,7 +512,7 @@ def subjectchoose():
     def Attf():
         import subprocess
         subprocess.Popen(
-            r'explorer /select," C:/Users/NANDINI/Desktop/Attendance_Management_System/Attendance/-------Check atttendance-------"')
+            r'explorer /select," C:/Users/NANDINI/Desktop/attendance-management-system/Attendance/-------Check atttendance-------"')
 
     attf = tk.Button(windo,  text="Check Sheets", command=Attf, fg="black", bg="#a0e8af",
                      width=12, height=1, activebackground="Red", font=('roboto', 14, ' bold '))
@@ -552,7 +552,7 @@ def admin_panel():
                 root.title("Student Details")
                 root.configure(background='#1B1B1B')
 
-                cs = 'C:/Users/NANDINI/Desktop/Attendance_Management_System/StudentDetails/StudentDetails.csv'
+                cs = 'C:/Users/NANDINI/Desktop/attendance-management-system/StudentDetails/StudentDetails.csv'
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
