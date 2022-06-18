@@ -9,12 +9,13 @@ import pandas as pd
 import datetime
 import time
 
+
 # Window is our Main frame of the system
 window = tk.Tk()
 window.title("FAMS-Face Recognition Based Attendance Management System")
 
 window.geometry('1280x720')
-window.configure(background='#e7ecef')
+window.configure(background='#1B1B1B')
 
 # GUI for Manually Fill Attendance
 
@@ -25,7 +26,7 @@ def manually_fill():
     sb.iconbitmap('AMS.ico')
     sb.title("Enter Subject Name")
     sb.geometry('580x320')
-    sb.configure(background='#e7ecef')
+    sb.configure(background='#1B1B1B')
 
     def err_screen_for_subject():
 
@@ -36,11 +37,11 @@ def manually_fill():
         ec.geometry('300x100')
         ec.iconbitmap('AMS.ico')
         ec.title('Warning!')
-        ec.configure(background='#e7ecef')
-        Label(ec, text='Please enter your subject name!!!', fg='red',
-              bg='#e7ecef', font=('times', 16, ' bold ')).pack()
-        Button(ec, text='OK', command=ec_delete, fg="#e7ecef", bg="#2C3B0F", width=9, height=1, activebackground="Red",
-               font=('times', 15, ' bold ')).place(x=90, y=50)
+        ec.configure(background='#1B1B1B')
+        Label(ec, text='Please enter your subject name!!!', fg='#FBBDEA',
+              bg='#1B1B1B', font=('roboto', 13, ' bold ')).pack()
+        Button(ec, text='OK', command=ec_delete, fg="#1B1B1B", bg="#D0F4F0", width=9, height=1, activebackground="Red",
+               font=('roboto', 15, ' bold ')).place(x=90, y=50)
 
     def fill_attendance():
         ts = time.time()
@@ -91,7 +92,7 @@ def manually_fill():
             MFW.iconbitmap('AMS.ico')
             MFW.title("Manually fill attendance of: " + str(subb))
             MFW.geometry('880x470')
-            MFW.configure(background='#e7ecef')
+            MFW.configure(background='#1B1B1B')
 
             def del_errsc2():
                 errsc2.destroy()
@@ -102,11 +103,11 @@ def manually_fill():
                 errsc2.geometry('330x100')
                 errsc2.iconbitmap('AMS.ico')
                 errsc2.title('Warning!')
-                errsc2.configure(background='#e7ecef')
-                Label(errsc2, text='Please enter Roll No. and Name!!!', fg='red', bg='#e7ecef',
-                      font=('times', 16, ' bold ')).pack()
-                Button(errsc2, text='OK', command=del_errsc2, fg="black", bg="#a0e8af", width=9, height=1,
-                       activebackground="Red", font=('times', 15, ' bold ')).place(x=90, y=50)
+                errsc2.configure(background='#1B1B1B')
+                Label(errsc2, text='Please enter Roll No. and Name!!!', fg='#FBBDEA', bg='#1B1B1B',
+                      font=('roboto', 16, ' bold ')).pack()
+                Button(errsc2, text='OK', command=del_errsc2, fg="#1b1b1b", bg="#D0F4F0", width=9, height=1,
+                       activebackground="Red", font=('roboto', 15, ' bold ')).place(x=90, y=50)
 
             def testVal(inStr, acttyp):
                 if acttyp == '1':  # insert
@@ -114,17 +115,17 @@ def manually_fill():
                         return False
                 return True
 
-            ENR = tk.Label(MFW, text="Enter Roll No.", width=15, height=2, fg="#2C3B0F", bg="#e7ecef",
-                           font=('times', 15, ' bold '))
+            ENR = tk.Label(MFW, text="Enter Roll No.", width=15, height=2, fg="#2C3B0F", bg="#1B1B1B",
+                           font=('roboto', 15, ' bold '))
             ENR.place(x=30, y=100)
 
-            STU_NAME = tk.Label(MFW, text="Enter Name", width=15, height=2, fg="#2C3B0F", bg="#e7ecef",
-                                font=('times', 15, ' bold '))
+            STU_NAME = tk.Label(MFW, text="Enter Name", width=15, height=2, fg="#2C3B0F", bg="#1B1B1B",
+                                font=('roboto', 15, ' bold '))
             STU_NAME.place(x=30, y=200)
 
             global ENR_ENTRY
             ENR_ENTRY = tk.Entry(MFW, width=20, validate='key',
-                                 bg="#dddddd", fg="red", font=('times', 23, ' bold '))
+                                 bg="#dddddd", fg="red", font=('roboto', 23, ' bold '))
             ENR_ENTRY['validatecommand'] = (
                 ENR_ENTRY.register(testVal), '%P', '%d')
             ENR_ENTRY.place(x=290, y=105)
@@ -133,7 +134,7 @@ def manually_fill():
                 ENR_ENTRY.delete(first=0, last=22)
 
             STUDENT_ENTRY = tk.Entry(
-                MFW, width=20, bg="#dddddd", fg="red", font=('times', 23, ' bold '))
+                MFW, width=20, bg="#dddddd", fg="red", font=('roboto', 23, ' bold '))
             STUDENT_ENTRY.place(x=290, y=205)
 
             def remove_student():
@@ -179,7 +180,7 @@ def manually_fill():
                 import tkinter
                 root = tkinter.Tk()
                 root.title("Attendance of: " + subb)
-                root.configure(background='#e7ecef')
+                root.configure(background='#1B1B1B')
                 with open(csv_name, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -188,7 +189,7 @@ def manually_fill():
                         c = 0
                         for row in col:
                             # some styling
-                            label = tkinter.Label(root, width=13, height=1, fg="black", font=('times', 13, ' bold '),
+                            label = tkinter.Label(root, width=13, height=1, fg="black", font=('roboto', 13, ' bold '),
                                                   bg="lawn green", text=row, relief=tkinter.RIDGE)
                             label.grid(row=r, column=c)
                             c += 1
@@ -198,24 +199,24 @@ def manually_fill():
             Notifi = tk.Label(MFW, text="CSV created Successfully", bg="Green", fg="white", width=33,
                               height=2, font=('times', 19, 'bold'))
 
-            c1ear_enroll = tk.Button(MFW, text="Clear", command=remove_enr, fg="#e7ecef", bg="#2C3B0F", width=10,
+            c1ear_enroll = tk.Button(MFW, text="Clear", command=remove_enr, fg="#1B1B1B", bg="#2C3B0F", width=10,
                                      height=1,
-                                     activebackground="Red", font=('times', 15, ' bold '))
+                                     activebackground="Red", font=('roboto', 15, ' bold '))
             c1ear_enroll.place(x=690, y=100)
 
-            c1ear_student = tk.Button(MFW, text="Clear", command=remove_student, fg="#e7ecef", bg="#2C3B0F", width=10,
+            c1ear_student = tk.Button(MFW, text="Clear", command=remove_student, fg="#1B1B1B", bg="#2C3B0F", width=10,
                                       height=1,
-                                      activebackground="Red", font=('times', 15, ' bold '))
+                                      activebackground="Red", font=('roboto', 15, ' bold '))
             c1ear_student.place(x=690, y=200)
 
             DATA_SUB = tk.Button(MFW, text="Enter Data", command=enter_data_DB, fg="black", bg="#E1CA96", width=20,
                                  height=2,
-                                 activebackground="Red", font=('times', 15, ' bold '))
+                                 activebackground="Red", font=('roboto', 15, ' bold '))
             DATA_SUB.place(x=170, y=300)
 
             MAKE_CSV = tk.Button(MFW, text="Convert to CSV", command=create_csv, fg="white", bg="#710627", width=20,
                                  height=2,
-                                 activebackground="Red", font=('times', 15, ' bold '))
+                                 activebackground="Red", font=('roboto', 15, ' bold '))
             MAKE_CSV.place(x=570, y=300)
 
             def attf():
@@ -224,23 +225,23 @@ def manually_fill():
                     r'explorer /select," C:/Users/NANDINI/Desktop/Attendance_Management_System/Attendance/Manual Attendance/-------Check atttendance-------"')
 
             attf = tk.Button(MFW,  text="Check Sheets", command=attf, fg="black", bg="#a0e8af",
-                             width=12, height=1, activebackground="Red", font=('times', 14, ' bold '))
+                             width=12, height=1, activebackground="Red", font=('roboto', 14, ' bold '))
             attf.place(x=730, y=410)
 
             MFW.mainloop()
 
     SUB = tk.Label(sb, text="Enter Subject", width=15, height=2,
-                   fg="#2C3B0F", bg="#e7ecef", font=('times', 15, ' bold '))
+                   fg="#F4D799", bg="#1B1B1B", font=('roboto', 15, ' bold '))
     SUB.place(x=30, y=100)
 
     global SUB_ENTRY
 
-    SUB_ENTRY = tk.Entry(sb, width=20, bg="#DDDDDD",
-                         fg="red", font=('times', 23, ' bold '))
+    SUB_ENTRY = tk.Entry(sb, width=20, bg="#F9F3E5",
+                         fg="red", font=('roboto', 20, ' bold '))
     SUB_ENTRY.place(x=250, y=105)
 
     fill_manual_attendance = tk.Button(sb, text="Fill Attendance", command=fill_attendance, fg="white", bg="#710627", width=20, height=2,
-                                       activebackground="Red", font=('times', 15, ' bold '))
+                                       activebackground="Red", font=('roboto', 15, ' bold '))
     fill_manual_attendance.place(x=250, y=160)
     sb.mainloop()
 
@@ -265,11 +266,11 @@ def err_screen():
     sc1.geometry('300x100')
     sc1.iconbitmap('AMS.ico')
     sc1.title('Warning!')
-    sc1.configure(background='#e7ecef')
-    Label(sc1, text='Roll No. & Name required!!!', fg='red',
-          bg='#e7ecef', font=('times', 16, ' bold ')).pack()
-    Button(sc1, text='OK', command=del_sc1, fg="black", bg="#a0e8af", width=9,
-           height=1, activebackground="Red", font=('times', 15, ' bold ')).place(x=90, y=50)
+    sc1.configure(background='#1B1B1B')
+    Label(sc1, text='Roll No. & Name required!!!', fg='#FBBDEA',
+          bg='#1B1B1B', font=('roboto', 16, ' bold ')).pack()
+    Button(sc1, text='OK', command=del_sc1, fg="#1b1b1b", bg="#D0F4F0", width=9,
+           height=1, activebackground="Red", font=('roboto', 15, ' bold ')).place(x=90, y=50)
 
 # Error-screen2
 
@@ -284,11 +285,11 @@ def err_screen1():
     sc2.geometry('300x100')
     sc2.iconbitmap('AMS.ico')
     sc2.title('Warning!')
-    sc2.configure(background='#e7ecef')
-    Label(sc2, text='Please enter your subject name!!!', fg='red',
-          bg='#e7ecef', font=('times', 16, ' bold ')).pack()
-    Button(sc2, text='OK', command=del_sc2, fg="black", bg="#a0e8af", width=9,
-           height=1, activebackground="Red", font=('times', 15, ' bold ')).place(x=90, y=50)
+    sc2.configure(background='#1B1B1B')
+    Label(sc2, text='Please enter your subject name!!!', fg='#FBBDEA',
+          bg='#1B1B1B', font=('roboto', 13, ' bold ')).pack()
+    Button(sc2, text='OK', command=del_sc2, fg="#1b1b1b", bg="#D0F4F0", width=9,
+           height=1, activebackground="Red", font=('roboto', 15, ' bold ')).place(x=90, y=50)
 
 # For Take Images for datasets
 
@@ -338,7 +339,7 @@ def take_img():
                 csvFile.close()
             res = "Images Saved for Roll No. : " + Enrollment + " Name : " + Name
             Notification.configure(
-                text=res, bg="SpringGreen3", width=50, font=('times', 18, 'bold'))
+                text=res, bg="SpringGreen3", width=50, font=('roboto', 18, 'bold'))
             Notification.place(x=250, y=400)
         except FileExistsError as F:
             f = 'Student Data already exists'
@@ -361,7 +362,7 @@ def subjectchoose():
                 try:
                     recognizer.read("TrainingImageLabel\Trainer.yml")
                 except:
-                    e = 'Model not found,Please train model'
+                    e = 'Model not found, Please train model'
                     Notifica.configure(
                         text=e, bg="red", fg="black", width=33, font=('times', 15, 'bold'))
                     Notifica.place(x=20, y=250)
@@ -481,7 +482,7 @@ def subjectchoose():
                 import tkinter
                 root = tkinter.Tk()
                 root.title("Attendance of " + Subject)
-                root.configure(background='#e7ecef')
+                root.configure(background='#1B1B1B')
                 cs = 'C:/Users/NANDINI/Desktop/Attendance_Management_System/' + fileName
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
@@ -491,7 +492,7 @@ def subjectchoose():
                         c = 0
                         for row in col:
                             # some styling
-                            label = tkinter.Label(root, width=8, height=1, fg="black", font=('times', 15, ' bold '),
+                            label = tkinter.Label(root, width=8, height=1, fg="black", font=('roboto', 15, ' bold '),
                                                   bg="lawn green", text=row, relief=tkinter.RIDGE)
                             label.grid(row=r, column=c)
                             c += 1
@@ -504,7 +505,7 @@ def subjectchoose():
     windo.iconbitmap('AMS.ico')
     windo.title("Enter Subject Name")
     windo.geometry('580x320')
-    windo.configure(background='#e7ecef')
+    windo.configure(background='#1B1B1B')
     Notifica = tk.Label(windo, text="Attendance filled successfully", bg="Green", fg="white", width=33,
                         height=2, font=('times', 15, 'bold'))
 
@@ -514,19 +515,19 @@ def subjectchoose():
             r'explorer /select," C:/Users/NANDINI/Desktop/Attendance_Management_System/Attendance/-------Check atttendance-------"')
 
     attf = tk.Button(windo,  text="Check Sheets", command=Attf, fg="black", bg="#a0e8af",
-                     width=12, height=1, activebackground="Red", font=('times', 14, ' bold '))
+                     width=12, height=1, activebackground="Red", font=('roboto', 14, ' bold '))
     attf.place(x=430, y=255)
 
     sub = tk.Label(windo, text="Enter Subject", width=15, height=2,
-                   fg="#2C3B0F", bg="#e7ecef", font=('times', 15, ' bold '))
+                   fg="#F4D799", bg="#1B1B1B", font=('roboto', 15, ' bold '))
     sub.place(x=30, y=100)
 
-    tx = tk.Entry(windo, width=20, bg="#dddddd",
-                  fg="red", font=('times', 23, ' bold '))
+    tx = tk.Entry(windo, width=20, bg="#F9F3E5",
+                  fg="red", font=('roboto', 20, ' bold '))
     tx.place(x=250, y=105)
 
     fill_a = tk.Button(windo, text="Fill Attendance", fg="white", command=Fillattendances, bg="#710627", width=20, height=2,
-                       activebackground="Red", font=('times', 15, ' bold '))
+                       activebackground="Red", font=('roboto', 15, ' bold '))
     fill_a.place(x=250, y=160)
     windo.mainloop()
 
@@ -536,7 +537,7 @@ def admin_panel():
     win.iconbitmap('AMS.ico')
     win.title("Log-in")
     win.geometry('880x420')
-    win.configure(background='#e7ecef')
+    win.configure(background='#1B1B1B')
 
     def log_in():
         username = un_entr.get()
@@ -549,7 +550,7 @@ def admin_panel():
                 import tkinter
                 root = tkinter.Tk()
                 root.title("Student Details")
-                root.configure(background='#e7ecef')
+                root.configure(background='#1B1B1B')
 
                 cs = 'C:/Users/NANDINI/Desktop/Attendance_Management_System/StudentDetails/StudentDetails.csv'
                 with open(cs, newline="") as file:
@@ -560,7 +561,7 @@ def admin_panel():
                         c = 0
                         for row in col:
                             # some styling
-                            label = tkinter.Label(root, width=8, height=1, fg="black", font=('times', 15, ' bold '),
+                            label = tkinter.Label(root, width=8, height=1, fg="black", font=('roboto', 15, ' bold '),
                                                   bg="#dddddd", text=row, relief=tkinter.RIDGE)
                             label.grid(row=r, column=c)
                             c += 1
@@ -582,39 +583,39 @@ def admin_panel():
                   height=2, font=('times', 19, 'bold'))
     # Nt.place(x=120, y=350)
 
-    un = tk.Label(win, text="Enter username", width=15, height=2, fg="#2C3B0F", bg="#e7ecef",
-                  font=('times', 15, ' bold '))
+    un = tk.Label(win, text="Enter username", width=15, height=2, fg="#F4D799", bg="#1B1B1B",
+                  font=('roboto', 15, ' bold '))
     un.place(x=30, y=50)
 
-    pw = tk.Label(win, text="Enter password", width=15, height=2, fg="#2C3B0F", bg="#e7ecef",
-                  font=('times', 15, ' bold '))
+    pw = tk.Label(win, text="Enter password", width=15, height=2, fg="#F4D799", bg="#1B1B1B",
+                  font=('roboto', 15, ' bold '))
     pw.place(x=30, y=150)
 
     def c00():
         un_entr.delete(first=0, last=22)
 
-    un_entr = tk.Entry(win, width=20, bg="#dddddd", fg="red",
-                       font=('times', 23, ' bold '))
+    un_entr = tk.Entry(win, width=20, bg="#F9F3E5", fg="red",
+                       font=('roboto', 23, ' bold '))
     un_entr.place(x=290, y=55)
 
     def c11():
         pw_entr.delete(first=0, last=22)
 
-    pw_entr = tk.Entry(win, width=20, show="*", bg="#dddddd",
-                       fg="red", font=('times', 23, ' bold '))
+    pw_entr = tk.Entry(win, width=20, show="*", bg="#F9F3E5",
+                       fg="red", font=('roboto', 23, ' bold '))
     pw_entr.place(x=290, y=155)
 
     c0 = tk.Button(win, text="Clear", command=c00, fg="white", bg="#710627", width=10, height=1,
-                   activebackground="Red", font=('times', 15, ' bold '))
+                   activebackground="Red", font=('roboto', 15, ' bold '))
     c0.place(x=690, y=55)
 
     c1 = tk.Button(win, text="Clear", command=c11, fg="white", bg="#710627", width=10, height=1,
-                   activebackground="Red", font=('times', 15, ' bold '))
+                   activebackground="Red", font=('roboto', 15, ' bold '))
     c1.place(x=690, y=155)
 
     Login = tk.Button(win, text="Log in", fg="black", bg="#a0e8af", width=20,
                       height=2,
-                      activebackground="Red", command=log_in, font=('times', 15, ' bold '))
+                      activebackground="Red", command=log_in, font=('roboto', 15, ' bold '))
     Login.place(x=290, y=250)
     win.mainloop()
 
@@ -686,16 +687,16 @@ def on_closing():
 
 window.protocol("WM_DELETE_WINDOW", on_closing)
 
-message = tk.Label(window, text="Face Recognition-Based Attendance Management System", bg="#F7D2D5", fg="#157f1f", width=50,
-                   height=3, font=('times', 35, 'bold '))
+message = tk.Label(window, text="   Face Recognition-Based Attendance Management System", bg="#1b1b1b", fg="#F8F8F8", width=50,
+                   height=3, font=('roboto, sans-serif', 34, 'bold '))
 
 message.place(x=-60, y=20)
 
 Notification = tk.Label(window, text="All things good", bg="Green", fg="white", width=15,
-                        height=3, font=('times', 17, 'bold'))
+                        height=3, font=('roboto', 17, 'bold'))
 
 lbl = tk.Label(window, text="Enter Roll No.", width=20, height=2,
-               fg="#2C3B0F", bg="#e7ecef", font=('times', 20, ' bold '))
+               fg="#F4D799", bg="#1B1B1B", font=('roboto', 20, ' bold '))
 lbl.place(x=200, y=200)
 
 
@@ -706,45 +707,45 @@ def testVal(inStr, acttyp):
     return True
 
 
-txt = tk.Entry(window, validate="key", width=20, bg="#DDDDDD",
-               fg="red", font=('times', 25, ' bold '))
+txt = tk.Entry(window, validate="key", width=20, bg="#F9F3E5",
+               fg="red", font=('roboto', 25, ' bold '))
 txt['validatecommand'] = (txt.register(testVal), '%P', '%d')
 txt.place(x=550, y=210)
 
-lbl2 = tk.Label(window, text="Enter Name", width=20, fg="#2C3B0F",
-                bg="#e7ecef", height=2, font=('times', 20, ' bold '))
+lbl2 = tk.Label(window, text="Enter Name", width=20, fg="#F4D799",
+                bg="#1B1B1B", height=2, font=('roboto', 20, ' bold '))
 lbl2.place(x=200, y=300)
 
-txt2 = tk.Entry(window, width=20, bg="#DDDDDD",
-                fg="red", font=('times', 25, ' bold '))
+txt2 = tk.Entry(window, width=20, bg="#F9F3E5",
+                fg="red", font=('roboto', 25, ' bold '))
 txt2.place(x=550, y=310)
 
-clearButton = tk.Button(window, text="Clear", command=clear, fg="#e7ecef", bg="#2C3B0F",
-                        width=10, height=1, activebackground="Red", font=('times', 15, ' bold '))
+clearButton = tk.Button(window, text="Clear", command=clear, fg="#1B1B1B", bg="#F4D799",
+                        width=10, height=1, activebackground="Red", font=('roboto', 15, ' bold '))
 clearButton.place(x=950, y=210)
 
-clearButton1 = tk.Button(window, text="Clear", command=clear1, fg="#e7ecef", bg="#2C3B0F",
-                         width=10, height=1, activebackground="Red", font=('times', 15, ' bold '))
+clearButton1 = tk.Button(window, text="Clear", command=clear1, fg="#1B1B1B", bg="#F4D799",
+                         width=10, height=1, activebackground="Red", font=('roboto', 15, ' bold '))
 clearButton1.place(x=950, y=310)
 
-AP = tk.Button(window, text=" Check Registered Students ", command=admin_panel, fg="black",
-               bg="#a0e8af", width=19, height=1, activebackground="Red", font=('times', 17, ' bold '))
+AP = tk.Button(window, text="Check Registered Students", command=admin_panel, fg="#1b1b1b",
+               bg="#8CD4CB", width=22, height=1, activebackground="Red", font=('roboto', 15, ' bold '))
 AP.place(x=990, y=410)
 
-takeImg = tk.Button(window, text="Take Images", command=take_img, fg="black", bg="#E1CA96",
-                    width=20, height=3, activebackground="Red", font=('times', 15, ' bold '))
+takeImg = tk.Button(window, text="Take Images", command=take_img, fg="#1b1b1b", bg="#F6A89E",
+                    width=20, height=3, activebackground="Red", font=('roboto', 15, ' bold '))
 takeImg.place(x=90, y=500)
 
-trainImg = tk.Button(window, text="Train Images", fg="white", command=trainimg, bg="#710627",
-                     width=20, height=3, activebackground="Red", font=('times', 15, ' bold '))
+trainImg = tk.Button(window, text="Train Images", fg="#1b1b1b", command=trainimg, bg="#ffe4e1",
+                     width=20, height=3, activebackground="Red", font=('roboto', 15, ' bold '))
 trainImg.place(x=390, y=500)
 
-FA = tk.Button(window, text="Automatic Attendance", fg="black", command=subjectchoose,
-               bg="#E1CA96", width=20, height=3, activebackground="Red", font=('times', 15, ' bold '))
+FA = tk.Button(window, text="Automatic Attendance", fg="#1b1b1b", command=subjectchoose,
+               bg="#F6A89E", width=20, height=3, activebackground="Red", font=('roboto', 15, ' bold '))
 FA.place(x=690, y=500)
 
-quitWindow = tk.Button(window, text="Manually Fill Attendance", command=manually_fill, fg="white",
-                       bg="#710627", width=20, height=3, activebackground="Red", font=('times', 15, ' bold '))
+quitWindow = tk.Button(window, text="Manually Fill Attendance", command=manually_fill, fg="#1b1b1b",
+                       bg="#ffe4e1", width=20, height=3, activebackground="Red", font=('roboto', 15, ' bold '))
 quitWindow.place(x=990, y=500)
 
 window.mainloop()

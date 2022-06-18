@@ -4,6 +4,7 @@ A Face Recognition-based project in Python to mark and track your attendance.
 
 ### System/Code Requirements
 - Python 3.6 or above
+- Roboto Font (`pip install font-roboto`)
 - OpenCV (`pip install opencv-python`)
 - Tkinter (Available in Python)
 - PIL (`pip install Pillow`)
