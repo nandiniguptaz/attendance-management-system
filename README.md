@@ -2,7 +2,7 @@
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)  
 A Face Recognition-based project in Python to mark and track your attendance.
 
-### Code Requirements
+### System/Code Requirements
 - Python 3.6 or above
 - OpenCV (`pip install opencv-python`)
 - Tkinter (Available in Python)
@@ -35,3 +35,5 @@ A Face Recognition-based project in Python to mark and track your attendance.
 - You can also store this data in your own database (install WampServer), and change the DB name accordingly in the code in file `AMS_Run.py`
 - `Manually Fill Attendance` is to fill the attendance of a student manually (without Face Recognition)
 - It will also create a `.csv` file of attendance and store in a database
+- To see the details of all the registered students, click on `Check Registered Students` button
+- It will open the Admin Login Panel, enter the correct username and password (mentioned in code) and `StudentDetails.csv` file opens
